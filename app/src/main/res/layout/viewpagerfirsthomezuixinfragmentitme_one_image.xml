@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="140dp"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp105"
+        android:layout_alignParentRight="true"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/dp30">
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp30"
+            android:paddingRight="@dimen/dp40"
+            android:singleLine="true"
+            android:text="高冷笑段，适合夏天欣赏"
+            android:textColor="@color/grayDark"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:id="@+id/dianzan_image"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="match_parent"
+            android:src="@drawable/huisedianzan"
+            android:visibility="gone"/>
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/dianzan_counts"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/dp30"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp20"
+            android:singleLine="true"
+            android:text="52000点赞"
+            android:textColor="@color/gray"
+            android:textSize="12sp"/>
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/dp30"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="|"
+            android:textColor="@color/grayDark"
+            android:textSize="12sp"/>
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/shoucang"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/dp30"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="52000收藏"
+            android:textColor="@color/gray"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp270"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/dp30">
+
+        <ImageView
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/one_image"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp30"
+            android:scaleType="fitXY"
+            android:src="@drawable/type_01"/>
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/one_image"
+            android:ellipsize="end"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="4"
+            android:paddingLeft="@dimen/dp50"
+            android:text="1.高冷笑段，适合夏天欣赏\n2.高冷笑段，适合夏天欣赏\n3.高冷笑段，适合夏天欣赏\n4.高冷笑段，适合夏天欣赏"
+            android:textColor="@color/grayLight"
+            android:textSize="12sp"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray2"/>
+</LinearLayout>

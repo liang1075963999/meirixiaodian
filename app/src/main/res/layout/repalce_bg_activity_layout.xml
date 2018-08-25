@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/blue"
+                android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray2"
+        android:orientation="vertical"
+        android:weightSum="12">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:padding="@dimen/dp20"
+                    android:src="@mipmap/contentback"/>
+
+                <read.eyydf.terr.jokecollection.views.zitiTextView
+                    android:id="@+id/cet_main_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="修改头像"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+        </FrameLayout>
+
+        <read.eyydf.terr.jokecollection.views.UserDefineScrollView
+            android:id="@+id/own_user_image_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="25dp">
+
+                <ImageView
+                    android:id="@+id/own_user_image_baikuang"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/own_baikuang"
+                    android:visibility="gone"/>
+
+                <read.eyydf.terr.jokecollection.views.CircleImageView
+                    android:id="@+id/own_user_image"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/tou"/>
+            </FrameLayout>
+        </read.eyydf.terr.jokecollection.views.UserDefineScrollView>
+
+        <LinearLayout
+            android:id="@+id/repalce_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <read.eyydf.terr.jokecollection.views.zitiTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="7"
+                android:gravity="center_vertical"
+                android:text="修改头像"
+                android:textColor="@color/grayDark"
+                android:textSize="@dimen/sp44"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tuichu_login"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <read.eyydf.terr.jokecollection.views.zitiTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="7"
+                android:gravity="center_vertical"
+                android:text="退出登录"
+                android:textColor="@color/grayDark"
+                android:textSize="@dimen/sp44"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

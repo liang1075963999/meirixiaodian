@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/blue"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/content_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:src="@drawable/content_back"/>
+
+            <read.eyydf.terr.jokecollection.views.zitiTextView
+                android:text="爆笑糗事"
+                android:id="@+id/cet_main_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:visibility="invisible"/>
+        </FrameLayout>
+    </FrameLayout>
+
+    <read.eyydf.terr.jokecollection.pullableview.PullToRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pullToRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray2">
+
+        <include layout="@layout/refresh_head"/>
+
+        <read.eyydf.terr.jokecollection.pullableview.PullableListView
+            android:id="@+id/zuixin_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorGray2"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:listSelector="@drawable/listview_selector"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+        </read.eyydf.terr.jokecollection.pullableview.PullableListView>
+
+        <include layout="@layout/load_more"/>
+
+    </read.eyydf.terr.jokecollection.pullableview.PullToRefreshLayout>
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pullToRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray2" >
+
+    <ListView
+        android:id="@+id/paihang_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="1dp"
+        android:fadingEdge="none"
+        android:background="@color/colorGray2"
+        android:divider="@null"
+        android:listSelector="@drawable/listview_selector"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+    </ListView>
+
+</RelativeLayout>

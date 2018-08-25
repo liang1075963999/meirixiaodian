@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:fitsSystemWindows="true" >
+
+    <LinearLayout
+        android:background="@color/white"
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:padding="@dimen/dp20"
+                    android:src="@mipmap/contentback"/>
+
+                <read.eyydf.terr.jokecollection.views.zitiTextView
+                    android:id="@+id/cet_main_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="意见反馈"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray2"/>
+        <read.eyydf.terr.jokecollection.views.UserDefineScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="11"
+            android:background="@color/white"
+            android:overScrollMode="never"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <read.eyydf.terr.jokecollection.views.LinedEditText
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_diary_title"
+                    android:enabled="true"
+                    android:gravity="top"
+                    android:lineSpacingExtra="5dp"
+                    android:maxLines="10"
+                    android:minLines="8"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    android:scrollbars="vertical"
+                    android:textSize="17sp"/>
+                <Button
+                    android:id="@+id/tijiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/buttonbeijing"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:paddingTop="5dp"
+                    android:text="提交反馈"
+                    android:textColor="@color/white"/>
+                <read.eyydf.terr.jokecollection.views.zitiTextView
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/white"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:text="商务合作请注明来意，可添加下方QQ或者发送邮件到以下邮箱:(点击可复制)"
+                    android:textSize="18sp" />
+
+                <read.eyydf.terr.jokecollection.views.zitiTextView
+                    android:visibility="gone"
+                    android:id="@+id/web_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/colorGray2"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:text="QQ：505152484"
+                    android:textSize="18sp" />
+
+                <read.eyydf.terr.jokecollection.views.zitiTextView
+                    android:visibility="gone"
+                    android:id="@+id/web_layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/colorGray2"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:text="邮箱：shike@apploft.com.cn"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </read.eyydf.terr.jokecollection.views.UserDefineScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

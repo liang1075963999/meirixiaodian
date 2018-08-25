@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="read.eyydf.terr.jokecollection"
+    android:hardwareAccelerated="true"
+    tools:overrideLibrary="com.jeremyfeinstein.slidingmenu.lib">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true"/>
+
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <application
+        android:name=".activity.MyApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/logo"
+        android:label="每日笑点"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.SheZhiActivity"/>
+        <activity android:name=".CeShiActivity">
+        </activity>
+        <activity android:name=".activity.NiChengActivity"/>
+        <activity android:name=".activity.QianMingActivity"/>
+        <activity android:name=".activity.GeRenActivity"/>
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.LoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme"
+            android:windowSoftInputMode="stateVisible|adjustPan|stateHidden"/>
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.RegisterActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme"
+            android:windowSoftInputMode="stateVisible|adjustPan|stateHidden"/>
+        <activity android:name=".activity.GaoXiaoActivity"/>
+        <activity android:name=".activity.BaoXiaoActivity"/>
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.OwnXieyiShowActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme"/>
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.OwnHezuoShowActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme"/>
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.ContentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme"/>
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.TypeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme"/>
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.OwnGuanyuShowActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme"/>
+        <activity
+            android:name="read.eyydf.terr.jokecollection.activity.RepalceBgActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainActivityTheme"/>
+        <activity android:name=".activity.WebViewActivity"/>
+        <activity android:name=".activity.BigImageActivity"/>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5b5a958d8f4a9d63420000ac">
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="doding"/>
+    </application>
+</manifest>

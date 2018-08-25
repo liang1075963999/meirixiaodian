@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="11dp"
+        android:paddingTop="5dp">
+
+        <ImageView
+            android:id="@+id/paihang_image"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:scaleType="fitXY"/>
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:textStyle="bold"
+            android:id="@+id/paihang_xuhao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:text="01"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"/>
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/paihang_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_toLeftOf="@id/paihang_image"
+            android:layout_toRightOf="@id/paihang_xuhao"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="我是标题"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/paihang_text"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_toLeftOf="@id/paihang_image"
+            android:layout_toRightOf="@id/paihang_xuhao"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="我是内容"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/redu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_toLeftOf="@id/paihang_image"
+            android:layout_toRightOf="@id/paihang_xuhao"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="我是热度"
+            android:textColor="@color/gray"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/rela"
+        android:background="@color/colorGray2"/>
+</RelativeLayout>

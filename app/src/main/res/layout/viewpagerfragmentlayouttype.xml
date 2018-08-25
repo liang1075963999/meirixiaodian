@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorGray2"
+              android:orientation="vertical">
+
+    <read.eyydf.terr.jokecollection.views.UserDefineScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner
+                android:visibility="gone"
+                android:id="@+id/tuijian_banner_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp350"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/type_01"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/colorGray2"
+                            android:src="@drawable/type_01"/>
+
+                        <read.eyydf.terr.jokecollection.views.zitiTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:gravity="center_horizontal"
+                            android:text="爆笑男女"
+                            android:textColor="@android:color/black"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/type_02"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/colorGray2"
+                            android:src="@drawable/type_02"/>
+
+                        <read.eyydf.terr.jokecollection.views.zitiTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:gravity="center_horizontal"
+                            android:text="校园趣事"
+                            android:textColor="@android:color/black"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/type_03"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/colorGray2"
+                            android:src="@drawable/type_03"/>
+
+                        <read.eyydf.terr.jokecollection.views.zitiTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:gravity="center_horizontal"
+                            android:text="冷笑话"
+                            android:textColor="@android:color/black"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/type_04"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/colorGray2"
+                            android:src="@drawable/type_04"/>
+
+                        <read.eyydf.terr.jokecollection.views.zitiTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:gravity="center_horizontal"
+                            android:text="幽默夫妻"
+                            android:textColor="@android:color/black"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/type_05"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/colorGray2"
+                            android:src="@drawable/type_05"/>
+
+                        <read.eyydf.terr.jokecollection.views.zitiTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:gravity="center_horizontal"
+                            android:text="糗事一筐"
+                            android:textColor="@android:color/black"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/type_06"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="6dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/colorGray2"
+                            android:src="@drawable/type_06"/>
+
+                        <read.eyydf.terr.jokecollection.views.zitiTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_margin="6dp"
+                            android:gravity="center_horizontal"
+                            android:text="雷人儿童"
+                            android:textColor="@android:color/black"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </read.eyydf.terr.jokecollection.views.UserDefineScrollView>
+
+</LinearLayout>

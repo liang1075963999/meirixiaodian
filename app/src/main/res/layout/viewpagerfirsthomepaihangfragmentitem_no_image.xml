@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp350"
+    android:background="@color/colorGray2"
+    android:paddingTop="@dimen/dp20" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/paihang_xuhao"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp40"
+            android:layout_marginBottom="@dimen/dp60"
+            android:text="01"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp" />
+
+        <read.eyydf.terr.jokecollection.views.zitiTextView
+            android:id="@+id/paihang_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp60"
+            android:layout_marginTop="@dimen/dp45"
+            android:layout_marginBottom="@dimen/dp60"
+            android:layout_toLeftOf="@id/paihang_image"
+            android:layout_toRightOf="@id/paihang_xuhao"
+            android:text="01"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</RelativeLayout>

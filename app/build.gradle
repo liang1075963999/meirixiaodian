@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.1"
+    defaultConfig {
+        applicationId "read.eyydf.jokecollection.episode"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 258
+        versionName "2.5.8"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+ /*   productFlavors {
+        duanzi {
+            applicationId "read.eyydf.jokecollection.episode"
+            minSdkVersion 16
+            targetSdkVersion 22
+            versionCode 258
+            versionName "2.5.8"
+            manifestPlaceholders = [appname: "爆笑百科日报",applogo: "@mipmap/logo"]
+        }
+        baike {
+            applicationId "read.terr.jokecollection.encyclopedia"
+            minSdkVersion 16
+            targetSdkVersion 22
+            versionCode 242
+            versionName "2.4.2"
+            manifestPlaceholders = [appname: "爆笑百科",applogo: "@mipmap/baikeicon"]
+        }
+        ribao {
+            applicationId "read.eyydf.terr.jokecollection"
+            minSdkVersion 16
+            targetSdkVersion 22
+            versionCode 220
+            versionName "2.2.0"
+            manifestPlaceholders = [appname: "爆笑日报",applogo: "@mipmap/baoxiaoribaologo"]
+        }
+    }*/
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:27.0.1'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/alicloud-android-sdk-httpdns-1.0.7.jar')
+    compile files('libs/alicloud-android-utils-1.0.3.jar')
+    compile files('libs/glide-full-4.3.0.jar')
+    compile files('libs/gson-2.2.4.jar')
+    compile files('libs/umeng-analytics-v6.1.0.jar')
+    compile files('libs/utdid4all-1.1.5_proguard.jar')
+    compile files('libs/xUtils-3.0.jar')
+    compile 'com.youth.banner:banner:1.4.10'
+    compile 'com.android.support:recyclerview-v7:27.0.1'
+    compile 'com.android.support:design:27.0.1'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+}
