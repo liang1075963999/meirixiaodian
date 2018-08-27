@@ -267,6 +267,8 @@ public class FirstHometuijianFragment extends Fragment {
                                     Log.d("woshitupian", bannerone.getString("url"));
                                     paihangListData.setTuPianURL(bannerone.getString("url"));
                                     paihangListData.setGuangGaoURL(bannerone.getString("advertise_url"));
+                                    if (bannerone.toString().contains("title"))
+                                        paihangListData.setGuangGaoTitle(bannerone.getString("title"));
                                 }
                                 paihangListData.setArticle_id(articlelist.getJSONObject(i).getInt("article_id"));
                                 paihangListData.setArticle_name(articlelist.getJSONObject(i).getString("article_name"));
@@ -309,6 +311,8 @@ public class FirstHometuijianFragment extends Fragment {
                                                     Log.d("woshitupian", bannerone.getString("url"));
                                                     paihangListData.setTuPianURL(bannerone.getString("url"));
                                                     paihangListData.setGuangGaoURL(bannerone.getString("advertise_url"));
+                                                    if (bannerone.toString().contains("title"))
+                                                        paihangListData.setGuangGaoTitle(bannerone.getString("title"));
                                                 }
                                                 paihangListData
                                                         .setArticle_id(articlelist.getJSONObject(i).getInt("article_id"));
@@ -354,6 +358,7 @@ public class FirstHometuijianFragment extends Fragment {
                             //downJson1.execute(ActivityUtils.url);
                             downJson1.execute(ActivityUtils.baikeribaourl);
                         } catch (Exception e) {
+                            Log.d("yichang1", e.getMessage().toString());
                         }
                     }
                 }
@@ -448,6 +453,8 @@ public class FirstHometuijianFragment extends Fragment {
                                 Log.d("woshitupian", bannerone.getString("url"));
                                 paihangListData.setTuPianURL(bannerone.getString("url"));
                                 paihangListData.setGuangGaoURL(bannerone.getString("advertise_url"));
+                                if (bannerone.toString().contains("title"))
+                                    paihangListData.setGuangGaoTitle(bannerone.getString("title"));
                             }
                             paihangListData.setArticle_id(articlelist.getJSONObject(i).getInt("article_id"));
                             paihangListData.setArticle_name(articlelist.getJSONObject(i).getString("article_name"));

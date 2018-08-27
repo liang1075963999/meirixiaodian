@@ -102,6 +102,7 @@ public class ContentActivity extends BaseActivity {
     private ArrayList<TuiJianEntity.Choicenesslistshiti> zhi;
     private int wenzhangID;
     private int iio;
+    private boolean open;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +132,7 @@ public class ContentActivity extends BaseActivity {
         article_id_list = new ArrayList<>();
         article_name_list = new ArrayList<>();
         article_id_list = getIntent().getIntegerArrayListExtra("article_id_list");
+        open = getIntent().getBooleanExtra("open",false);
    /*     for (int i = 0; i < article_id_list.size(); i++) {
             Log.d("ContentActivity", "article_id_list.get(i):" + article_id_list.get(i));
         }*/
@@ -570,12 +572,14 @@ public class ContentActivity extends BaseActivity {
                             Log.d("ContentActivity", "shoucangCount:" + shoucangCount);
                             holder.content_shoucang_text.setText(shoucangCount + "");
                             holder.liuLanLiang.setVisibility(View.INVISIBLE);
-                            holder.content_dianzan.setVisibility(View.INVISIBLE);
+                           /* holder.content_dianzan.setVisibility(View.INVISIBLE);
                             holder.content_dianzan_text.setVisibility(View.INVISIBLE);
                             holder.content_shoucang_text.setVisibility(View.INVISIBLE);
-                            holder.content_shoucang.setVisibility(View.INVISIBLE);
+                            holder.content_shoucang.setVisibility(View.INVISIBLE);*/
+                            holder.lin.setVisibility(View.INVISIBLE);
+                            holder.lin1.setVisibility(View.INVISIBLE);
                             //itemData.setShoucangCount(shoucangCount);
-                           // holder.liuLanLiang.setText(dianzanCount + shoucangCount + 234 + "人浏览");
+                            // holder.liuLanLiang.setText(dianzanCount + shoucangCount + 234 + "人浏览");
                           /*  Log.d("dsdfdsf", article.getInt("is_like") + "," + article.getInt("is_collect"));*/
                 /*    itemData.setIs_like(shoucangCount);
                     itemData.setShoucangCount(shoucangCount);*/
@@ -817,14 +821,15 @@ public class ContentActivity extends BaseActivity {
                 public void onRefresh(RefreshLayout refreshlayout) {
                     //mAdapter.notifyItemRangeRemoved(0,mAdapter.getItemCount());
               /*      if(position!=0){*/
-                    if (haoma != -1) {
+                    if (open) {
                         haoma--;
-                        if (haoma > -1) {
-                            click_next_content1(holder, haoma);
+                        if (haoma > -1 && haoma < article_id_list.size()) {
+                            mAdapter = new MyAdapter();
+                            recyclerView.setAdapter(mAdapter);
                             //content1(holder, haoma);
-                        } else {
+                        } else if(haoma==-1){
                             haoma = 0;
-                            Toast.makeText(ContentActivity.this, "已加载全部数据", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ContentActivity.this, "已经是第一条了", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         position1--;
@@ -850,14 +855,16 @@ public class ContentActivity extends BaseActivity {
             holder.smart.setOnLoadmoreListener(new OnLoadmoreListener() {
                 @Override
                 public void onLoadmore(RefreshLayout refreshlayout) {
-                    if (haoma != -1) {
+                    if (open) {
                         haoma++;
-                        if (haoma < 3) {
-                            click_next_content1(holder, haoma);
+                        if (haoma>-1&&haoma<article_id_list.size()) {
+                            mAdapter = new MyAdapter();
+                            recyclerView.setAdapter(mAdapter);
+                           // click_next_content1(holder, haoma);
                             //content1(holder, haoma);
-                        } else {
-                            haoma = 2;
-                            Toast.makeText(ContentActivity.this, "已加载全部数据", Toast.LENGTH_SHORT).show();
+                        } else  if (haoma == article_id_list.size()){
+                            haoma = article_id_list.size()-1;
+                            Toast.makeText(ContentActivity.this, "已经是最后一条了", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         position1++;
@@ -951,6 +958,8 @@ public class ContentActivity extends BaseActivity {
         class ViewHolder extends RecyclerView.ViewHolder {
             zitiTextView content_article_name;
             LinearLayout content_content;
+            LinearLayout lin;
+            LinearLayout lin1;
             ImageView content_dianzan;
             ImageView content_shoucang;
             TextView next_content;
@@ -978,6 +987,8 @@ public class ContentActivity extends BaseActivity {
                 content_layout = itemView.findViewById(R.id.content_layout);
                 scrollView = itemView.findViewById(R.id.scrollView);
                 smart = itemView.findViewById(R.id.smart);
+                lin = itemView.findViewById(R.id.lin);
+                lin1 = itemView.findViewById(R.id.lin1);
             }
         }
     }
@@ -1064,7 +1075,7 @@ public class ContentActivity extends BaseActivity {
         }
     }
 
-    private void click_next_content1(final MyAdapter.ViewHolder holder, final int h) {
+   /* private void click_next_content1(final MyAdapter.ViewHolder holder, final int h) {
         if (haoma != -1) {
             if (h > -1 && h < 3) {
                 Log.d("cffdao", "h:" + h);
@@ -1112,10 +1123,10 @@ public class ContentActivity extends BaseActivity {
                 return;
             }
         }
-    }
+    }*/
 
     private void click_next_content(final MyAdapter.ViewHolder holder) {
-        if (haoma > -1) {
+        if (open) {
             if (haoma < 2) {
                 holder.content_content.removeAllViews();
                 final ScaleAnimation sa1 = new ScaleAnimation(1.0f, 0f, 1.0f, 0f, Animation.RELATIVE_TO_SELF, 0.5f,

@@ -7,8 +7,8 @@ android {
         applicationId "read.eyydf.jokecollection.episode"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 258
-        versionName "2.5.8"
+        versionCode 259
+        versionName "2.5.9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,14 +17,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
- /*   productFlavors {
+    productFlavors {
         duanzi {
             applicationId "read.eyydf.jokecollection.episode"
             minSdkVersion 16
             targetSdkVersion 22
-            versionCode 258
-            versionName "2.5.8"
-            manifestPlaceholders = [appname: "爆笑百科日报",applogo: "@mipmap/logo"]
+            versionCode 259
+            versionName "2.5.9"
+            manifestPlaceholders = [appname: "每日笑点",applogo: "@mipmap/logo"]
         }
         baike {
             applicationId "read.terr.jokecollection.encyclopedia"
@@ -42,7 +42,7 @@ android {
             versionName "2.2.0"
             manifestPlaceholders = [appname: "爆笑日报",applogo: "@mipmap/baoxiaoribaologo"]
         }
-    }*/
+    }
 }
 
 dependencies {

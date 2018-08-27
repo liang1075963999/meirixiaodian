@@ -30,8 +30,6 @@ import read.eyydf.terr.jokecollection.model.BannerData;
 import read.eyydf.terr.jokecollection.model.GetListData;
 import read.eyydf.terr.jokecollection.model.ShouYeBannerData;
 import read.eyydf.terr.jokecollection.tools.ActivityUtils;
-import read.eyydf.terr.jokecollection.tools.DownJson;
-import read.eyydf.terr.jokecollection.tools.DownJson1;
 import read.eyydf.terr.jokecollection.views.MyTransition;
 
 import static read.eyydf.terr.jokecollection.activity.MainActivity.sendGetRequest;
@@ -47,10 +45,53 @@ public class ZuixinListviewAdapter1 extends BaseAdapter {
     private ArrayList<String> getBannerList;
     private static boolean is = true;
     private ShouYeBannerData.Banneroneshiti shouYeBannerData;
+    private boolean open;
 
-    public ZuixinListviewAdapter1(List<GetListData> list, Context context) {
+    public ZuixinListviewAdapter1(List<GetListData> list, final Context context) {
         this.list = list;
         this.context = context;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String response = null;
+                    if (context.getPackageName().equals("read.eyydf.jokecollection.episode"))
+                        response = sendGetRequest("http://app.51babyapp.com/AD/HUDONG/xiaohua3_01.json");
+                    else if (context.getPackageName().equals("read.terr.jokecollection.encyclopedia"))
+                        response = sendGetRequest("http://app.51babyapp.com/AD/HUDONG/xiaohua2_01.json");
+                    else if (context.getPackageName().equals("read.eyydf.terr.jokecollection"))
+                        response = sendGetRequest("http://app.51babyapp.com/AD/HUDONG/xiaohua1_01.json");
+                    JSONObject jsonObject = new JSONObject(response);
+                    bannerData = new BannerData();
+
+                    boolean isOpen = jsonObject.getBoolean("isOpen");
+                    JSONArray versionArray = jsonObject.getJSONArray("versionList");
+                    for (int i = 0; i < versionArray.length(); i++) {
+                        if (versionArray.getInt(i) == ActivityUtils.getVersionCode((Activity) context)) {
+                            isOpen = false;
+                        }
+                    }
+                    bannerData.setOpen(isOpen);
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("url");
+                    Random random = new Random();
+                    bannerData.setUrl(jsonArray.getString(random.nextInt(jsonArray.length())));
+                    ((Activity) context).runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d("fdsafaaaa", "bannerData.isOpen():" + bannerData.isOpen());
+                            open = bannerData.isOpen();
+                            if (bannerData.isOpen()) {
+                                //is = false;
+                                Log.d("ZuixinListviewAdapter", "hello");
+                            }
+                        }
+                    });
+                } catch (Exception e) {
+                    Log.d("ZuixinListviewAdap", e.getMessage().toString());
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -172,9 +213,6 @@ public class ZuixinListviewAdapter1 extends BaseAdapter {
 //                }
 //            }
             if (list.get(position).getTuPianURL() == null) {
-                Log.d("1dsdasdasdas",list.get(position).getContent().trim().replace("\n", ""));
-                Log.d("1dsdasdasdas1",list.get(position).getContent().trim());
-                Log.d("1dsdasdasdas2",list.get(position).getContent());
                 switch (type) {
                     case 0:
                         holder_no_image.title.setText(list.get(position).getArticle_name().trim());
@@ -221,7 +259,7 @@ public class ZuixinListviewAdapter1 extends BaseAdapter {
                         }
                         break;
                 }
-            } else {
+            } else if (open && list.get(position).getTuPianURL() != null) {
                 view = LayoutInflater.from(context).inflate(R.layout.bannerlayout,
                         null);
                 final ViewHolder_banner viewHolder_banner = new ViewHolder_banner();
@@ -230,9 +268,56 @@ public class ZuixinListviewAdapter1 extends BaseAdapter {
                 viewHolder_banner.linearLayout = view.findViewById(R.id.rela);
 
            /*     if (is) {*/
-                getBannerData(viewHolder_banner.linearLayout,viewHolder_banner.bannerTitle,viewHolder_banner.banner, position);
+                initImage(viewHolder_banner.linearLayout, viewHolder_banner.bannerTitle, viewHolder_banner.banner, position);
                 Log.d("ZuixinListviewAdapter", "yici");
                 // }
+            }else {
+                switch (type) {
+                    case 0:
+                        holder_no_image.title.setText(list.get(position).getArticle_name().trim());
+                        holder_no_image.content.setText(list.get(position).getContent().trim());
+                        holder_no_image.dianzan_counts.setText(list.get(position).getCountlike() + "点赞");
+                        holder_no_image.shouCang.setText(list.get(position).getCountcollect() + "收藏");
+                        if (list.get(position).getIs_like() == 1) {
+                            //holder_no_image.dianzan_image.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.bluedianzan));
+                        }
+                        break;
+                    case 1:
+                        holder_one_image.title.setText(list.get(position).getArticle_name().trim());
+                        holder_one_image.content.setText(list.get(position).getContent().trim());
+                        RequestOptions requestOptions = RequestOptions.centerCropTransform().optionalTransform(new MyTransition(context));
+                        if (list.get(position).getContentPictures().size() > 0) {
+                            Glide.with(context).applyDefaultRequestOptions(requestOptions).load(list.get(position).getContentPictures().get(0))
+                                    .into(holder_one_image.one_image);
+                        }
+                        holder_one_image.dianzan_counts.setText(list.get(position).getCountlike() + "点赞");
+                        holder_one_image.shouCang.setText(list.get(position).getCountcollect() + "收藏");
+                        if (list.get(position).getIs_like() == 1) {
+                            //holder_no_image.dianzan_image.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.bluedianzan));
+                        }
+                        break;
+                    case 3:
+                        holder_three_image.title.setText(list.get(position).getArticle_name().trim());
+                        RequestOptions requestOptions1 = RequestOptions.centerCropTransform().optionalTransform(new MyTransition(context));
+                        if (list.get(position).getContentPictures().size() > 0) {
+                            Glide.with(context).applyDefaultRequestOptions(requestOptions1).load(list.get(position).getContentPictures().get(0))
+                                    .into(holder_three_image.three_image_one);
+                        }
+                        if (list.get(position).getContentPictures().size() > 1) {
+                            Glide.with(context).applyDefaultRequestOptions(requestOptions1).load(list.get(position).getContentPictures().get(1))
+                                    .into(holder_three_image.three_image_two);
+                        }
+                        if (list.get(position).getContentPictures().size() > 2) {
+                            Glide.with(context).applyDefaultRequestOptions(requestOptions1).load(list.get(position).getContentPictures().get(2))
+                                    .into(holder_three_image.three_image_three);
+                        }
+                        holder_three_image.dianzan_counts.setText(list.get(position).getCountlike() + "点赞");
+                        holder_three_image.shouCang.setText(list.get(position).getCountcollect() + "收藏");
+                        if (list.get(position).getIs_like() == 1) {
+                            //holder_no_image.dianzan_image.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.bluedianzan));
+                        }
+                        break;
+                }
             }
         } catch (Exception e) {
             Log.d("ZuixinListviewAdapter", e.getMessage().toString());
@@ -240,82 +325,13 @@ public class ZuixinListviewAdapter1 extends BaseAdapter {
         return view;
     }
 
-    private void getBannerData(final LinearLayout relative,final TextView textView,final ImageView imageView, final int position) {
-        Log.d("fdsfsdfafdaaa", "daozhelil");
-        //  final DownJson downJson = new DownJson(1, 1, -1, -1, 0, null, null, -1, -1, -1);
-        final DownJson1 downJson = new DownJson1(1, 1, -1, -1, 0, null, null, -1, -1, -1, 2);
-        downJson.FreedomLoadTask(new DownJson.FreedomCallback() {
-            @Override
-            public void jsonLoaded(String[] json, String tag) {
-                if (tag.equals("ready")) {
-                   /* try {
-                        // JSONObject jsonObject = new JSONObject(json[0]);
-                       *//* JSONArray bannerlist = jsonObject.getJSONArray("bannerlist");
-                        Log.d("FirstHometuijiane", bannerlist.toString());
-                        for (int i = 0; i < bannerlist.length(); i++) {
-                            JSONObject jsonObject1 = bannerlist.getJSONObject(i);
-                            JSONArray jsonArray = jsonObject1.getJSONArray("bannerImgs");
-                            for (int j = 0; j < jsonArray.length(); j++) {
-                                getBannerList.add(ActivityUtils.url_request + jsonArray.getJSONObject(j).getString("url"));
-                            }
-                        }*//*
-                    } catch (Exception e) {
-
-                    }*/
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                String response = null;
-                                if (context.getPackageName().equals("read.eyydf.jokecollection.episode"))
-                                    response = sendGetRequest("http://app.51babyapp.com/AD/HUDONG/xiaohua3_01.json");
-                                else if (context.getPackageName().equals("read.terr.jokecollection.encyclopedia"))
-                                    response = sendGetRequest("http://app.51babyapp.com/AD/HUDONG/xiaohua2_01.json");
-                                else if (context.getPackageName().equals("read.eyydf.terr.jokecollection"))
-                                    response = sendGetRequest("http://app.51babyapp.com/AD/HUDONG/xiaohua1_01.json");
-                                JSONObject jsonObject = new JSONObject(response);
-                                bannerData = new BannerData();
-
-                                boolean isOpen = jsonObject.getBoolean("isOpen");
-                                JSONArray versionArray = jsonObject.getJSONArray("versionList");
-                                for (int i = 0; i < versionArray.length(); i++) {
-                                    if (versionArray.getInt(i) == ActivityUtils.getVersionCode((Activity) context)) {
-                                        isOpen = false;
-                                    }
-                                }
-                                bannerData.setOpen(isOpen);
-
-                                JSONArray jsonArray = jsonObject.getJSONArray("url");
-                                Random random = new Random();
-                                bannerData.setUrl(jsonArray.getString(random.nextInt(jsonArray.length())));
-                                ((Activity) context).runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Log.d("fdsafaaaa", "bannerData.isOpen():" + bannerData.isOpen());
-                                        if (bannerData.isOpen()) {
-                                            //is = false;
-                                            Log.d("ZuixinListviewAdapter", "hello");
-                                            initImage(relative,textView,imageView, position);
-                                        }
-                                    }
-                                });
-                            } catch (Exception e) {
-                                Log.d("ZuixinListviewAdap", e.getMessage().toString());
-                            }
-                        }
-                    }).start();
-                }
-            }
-        });
-        downJson.execute(ActivityUtils.baikeribaourl);
-    }
-
-    private void initImage(LinearLayout relativeLayout,TextView textView, ImageView imageView, final int position) {
+    private void initImage(LinearLayout relativeLayout, TextView textView, ImageView imageView, final int position) {
         relativeLayout.setVisibility(View.VISIBLE);
         try {
           /*  switch (position) {
                 case 2:*/
             Glide.with(context).load(list.get(position).getTuPianURL()).into(imageView);
+            textView.setText(list.get(position).getGuangGaoTitle());
                   /*  break;*/
               /*  case 6:
                     Glide.with(context).load(getBannerList.get(1)).into(imageView);

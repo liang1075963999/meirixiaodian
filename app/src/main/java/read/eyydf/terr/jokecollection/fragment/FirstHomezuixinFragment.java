@@ -662,6 +662,7 @@ public class FirstHomezuixinFragment extends Fragment implements View.OnClickLis
                 intent.putIntegerArrayListExtra("article_id_list", ids);
                 intent.putExtra("position", position);
                 intent.putExtra("hao", position);
+                intent.putExtra("open", true);
                 startActivity(intent);
             }
             //intent.putStringArrayListExtra("article_name_list", article_name_list);

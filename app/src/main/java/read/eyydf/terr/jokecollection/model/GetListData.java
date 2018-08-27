@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class GetListData implements Serializable{
 	private String tuPianURL;
 	private String guangGaoURL;
+	private String guangGaoTitle="";
 	private int article_id;
 	private String article_name;
 	private String content;
@@ -16,6 +17,14 @@ public class GetListData implements Serializable{
 	private int is_collect;
 	private int is_like;
 	private String date;
+
+	public String getGuangGaoTitle() {
+		return guangGaoTitle;
+	}
+
+	public void setGuangGaoTitle(String guangGaoTitle) {
+		this.guangGaoTitle = guangGaoTitle;
+	}
 
 	public String getTuPianURL() {
 		return tuPianURL;
